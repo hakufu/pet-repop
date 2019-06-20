@@ -1,0 +1,14 @@
+{
+    "disableAutoUpdate": false,
+    "disabled": false,
+    "name": "pet-repop",
+    "author": "Milice",
+    "description": "Ethical usage of pet skills.",
+    "version": "1.0",
+    "servers": ["https://raw.githubusercontent.com/RobinNorling/pet-repop/master/"],
+	"supportUrl": "https://github.com/RobinNorling/pet-repop/issues",
+    "options": {
+        "niceName": "Pet Repop",
+        "guiName": "Pet Repop"
+    }
+}
