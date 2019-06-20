@@ -14,6 +14,7 @@ const buffs = {
 };
 
 const food = {
+	0: {name: 'None', timeout: 0},
 	206049: {name: 'Puppy Figurine', timeout: 1200000},
 	206050: {name: 'Piglet Figurine', timeout: 5400000}, 
 	206051: {name: 'Popori Figurine', timeout: 17400000}
