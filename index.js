@@ -87,6 +87,7 @@ module.exports = function PetRepop(mod) {
 
 	mod.hook('C_USE_SERVANT_FEED_ITEM', defs['C_USE_SERVANT_FEED_ITEM'].version, (e) => {
 		if(toggleFood) {
+			toggleFood = false;
 			settings.food = e.id;
 			mod.command.message('<font color="#2961bc">Food set to: </font>'+food[settings.food].name);
 			saveSettings();
