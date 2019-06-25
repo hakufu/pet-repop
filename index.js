@@ -34,19 +34,13 @@ module.exports = function PetRepop(mod) {
 	const protocolVersion = mod.dispatch.protocolVersion;
 
 	for(let i in defs) {
-		if(!mod.dispatch.protocol.messages.has(i))
-			mod.dispatch.protocol.messages.set(i, new Map());
-			let definition = defs[i].data;
-			definition.type = 'root';
-			mod.dispatch.protocol.messages.get(i).set(defs[i].version, definition);
-		if(!mod.dispatch.latestDefVersion.get(i)) {
-			mod.dispatch.latestDefVersion.set(i, defs[i].version);
-		}
+		let definition = defs[i].data;
+		definition.type = 'root';
+		mod.dispatch.addDefinition(i, defs[i].version, definition);
 	}
 
 	for(let i in opcodes[protocolVersion]) {
-		mod.dispatch.protocolMap.name.set(i, opcodes[protocolVersion][i]);
-		mod.dispatch.protocolMap.code.set(opcodes[protocolVersion][i], i);
+		mod.dispatch.addOpcode(i, opcodes[protocolVersion][i]);
 	}
 
 	try {
@@ -190,7 +184,7 @@ module.exports = function PetRepop(mod) {
 				} else {
 					mod.command.message('<font color="#d62424">Specify a skill!</font> Valid skill names:');
 					mod.command.message(Object.keys(buffs).join(', '));
-				} 
+				}
 			break;
 
 			case 'help':
